@@ -1,12 +1,11 @@
-///²¢²é¼¯
 #include<iostream>
 #include<cstdio>
 #include<cmath>
 #include<cstdlib>
 #include<algorithm>
 using namespace std;
-#define N 10005
-int pre[N];
+#define N 50001
+int pre[N*3];
 int findPre(int k){
 	if(k!=pre[k]){
 		pre[k]=findPre(pre[k]);
