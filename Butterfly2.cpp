@@ -1,4 +1,3 @@
-///²¢²é¼¯
 #include<iostream>
 #include<cstdio>
 #include<cmath>
