@@ -8,11 +8,11 @@ using namespace std;
 #define N 100005
 
 struct node{
-   int value;  //Ӳ�ҵ���ֵ
-   int num;    //Ӳ�ҵ�����
+   int value;  //硬币的面值
+   int num;    //硬币的数量
 }g[N];
 int used[N];  
-int dp[N];    //dp[j] = 1 Ϊ�ܺ�Ϊj�ǿ��Դﵽ��
+int dp[N];    //dp[j] = 1 为总和为j是可以达到的
 
 int main(){
   int n,m;
@@ -31,10 +31,11 @@ for(int i=0;i<n;i++){
   dp[0] = 1;
   int total = 0;
   for(int i=0;i<n;i++){
-  	memset(used,0,sizeof(used)); //used[j]   ��ʾ�ܺ�Ϊiʱ��i��Ӳ��ʹ�õ�����
+  	memset(used,0,sizeof(used)); //used[j]   表示总和为i时第i个硬币使用的数量
   	for(int j=g[i].value;j<=m;j++){
-  		if(dp[j-g[i].value]==1&&!dp[j]&&(used[j-g[i].value]+1<=g[i].num)){
-  			dp[j] = 1;
+  		if(dp[j-g[i].value]==1&&!dp[j]&&(used[j-g[i].value]+1<=g[i].num)){//!dp[j]  是当不用i硬币，只用0-（i-1）硬币
+										//能实现时，就不用i硬币，从而扩大j能到达的位置
+  			dp[j] = 1;  
   			used[j] = used[j-g[i].value]+1;
   			total++;
 		  }
