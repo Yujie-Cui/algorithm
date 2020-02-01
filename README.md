@@ -1,1 +1,1 @@
-# algorithm
+this is some algoriths examples
