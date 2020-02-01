@@ -1,1 +1,1 @@
-this is some algoriths examples of poj
+these are some algoriths examples of poj
